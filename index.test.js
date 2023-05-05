@@ -62,8 +62,7 @@ describe("Endpoints", () => {
     it("should delete the dog matching the given id", async () => {
       // make a request
       await request(app).delete("/dogs/1");
-      const deletedDog = await Dog.findOne({ where: { id: 1 } });
-      expect(deletedDog).toBeNull();
+      expect(await Dog.findOne({ where: { id: 1 } })).toBeNull();
     });
   });
 });
